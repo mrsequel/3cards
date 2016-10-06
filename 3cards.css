@@ -1,0 +1,39 @@
+#jeden {
+    float: left;
+    margin-left: 80px;
+    width: 240px;
+    height: 360px;
+    background-image: url("glowny.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#dwa {
+    float: left;
+    margin-left: 30px;
+    width: 240px;
+    height: 360px;
+    background-image: url("glowny.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#trzy {
+    float: left;
+    margin-left: 30px;
+    width: 240px;
+    height: 360px;
+    background-image: url("glowny.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#zliczam {
+    animation: blinker 1s linear infinite;
+    font-size: large;
+    color: blue;
+    text-align: center;
+}
+@keyframes blinker {
+    50% { opacity: 0; }
+}
