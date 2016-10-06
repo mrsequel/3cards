@@ -1,56 +1,76 @@
 "use strict";
 
-//"Baza" obrazków
-function losuj() {
-    var myImages1 = Math.floor((Math.random() * 15) + 1);
-    var myImages = "images/image" + myImages1 + ".jpg";
-    return myImages;
+var NUMBER_OF_POKEMONS_IN_GAME = 3;
+
+// TODO(piecioshka): stworzyć $count
+// TODO(piecioshka): stworzyć zmienna, pod która bedzie zwycieski pokemon (obecnie jest to 1)
+
+function random(size) {
+    return Math.floor((Math.random() * size) + 1)
 }
 
-//Kliknięcia
+// "Baza" obrazków
+function buildPokemonURL(number) {
+    return "images/pokemons/image" + number + ".jpg";
+}
+
+// Kliknięcia
 var count = 0;
 
-//Pierwszy obrazek, losowanie
+var $firstButton = document.getElementById("jeden");
+var $secondButton = document.getElementById("dwa");
+var $thirdButton = document.getElementById("trzy");
+
+// Pierwszy obrazek, losowanie
 function clickHandler1() {
-    var celnie1 = document.getElementById("jeden").style.backgroundImage = "url('" + losuj() + "')";
-    console.log(losuj());
-    if (celnie1 == "url('images/image1.jpg')") {
+    var rand = random(NUMBER_OF_POKEMONS_IN_GAME);
+    var pokemonURL = buildPokemonURL(rand);
+    console.log('1) pokemonURL', pokemonURL);
+
+    $firstButton.style.backgroundImage = "url('" + pokemonURL + "')";
+
+    if (rand === 1) {
         count++;
-        document.getElementById("count").innerHTML = count;
+        document.getElementById("count").innerHTML = String(count);
     } else {
-        document.getElementById("jeden").removeEventListener('click', clickHandler1);
+        $firstButton.removeEventListener('click', clickHandler1);
     }
-    return count;
 }
 
-document.getElementById("jeden").addEventListener('click', clickHandler1);
+$firstButton.addEventListener('click', clickHandler1);
 
-//Drugi obrazek, losowanie
+// Drugi obrazek, losowanie
 function clickHandler2() {
-    var celnie2 = document.getElementById("dwa").style.backgroundImage = "url('" + losuj() + "')";
-    console.log(losuj());
-    if (celnie2 == "url('images/image1.jpg')") {
+    var rand = random(NUMBER_OF_POKEMONS_IN_GAME);
+    var pokemonURL = buildPokemonURL(rand);
+    console.log('2) pokemonURL', pokemonURL);
+
+    $secondButton.style.backgroundImage = "url('" + pokemonURL + "')";
+
+    if (rand === 1) {
         count++;
-        document.getElementById("count").innerHTML = count;
+        document.getElementById("count").innerHTML = String(count);
     } else {
-        document.getElementById("dwa").removeEventListener('click', clickHandler2);
+        $secondButton.removeEventListener('click', clickHandler2);
     }
-    return count;
 }
 
-document.getElementById("dwa").addEventListener('click', clickHandler2);
+$secondButton.addEventListener('click', clickHandler2);
 
-//Trzeci obrazek, losowanie
+// Trzeci obrazek, losowanie
 function clickHandler3() {
-    var celnie3 = document.getElementById("trzy").style.backgroundImage = "url('" + losuj() + "')";
-    console.log(losuj());
-    if (celnie3 == "url('images/image1.jpg')") {
+    var rand = random(NUMBER_OF_POKEMONS_IN_GAME);
+    var pokemonURL = buildPokemonURL(rand);
+    console.log('3) pokemonURL', pokemonURL);
+
+    $thirdButton.style.backgroundImage = "url('" + pokemonURL + "')";
+
+    if (rand === 1) {
         count++;
-        document.getElementById("count").innerHTML = count;
+        document.getElementById("count").innerHTML = String(count);
     } else {
-        document.getElementById("trzy").removeEventListener('click', clickHandler3);
+        $thirdButton.removeEventListener('click', clickHandler3);
     }
-    return count;
 }
 
-document.getElementById("trzy").addEventListener('click', clickHandler3);
+$thirdButton.addEventListener('click', clickHandler3);
