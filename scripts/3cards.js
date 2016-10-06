@@ -1,12 +1,13 @@
 "use strict";
 
-//"Baza" obrazków
+//"Baza" obrazkÃ³w
 function losuj() {
     var myImages1 = Math.floor((Math.random() * 15) + 1);
     var myImages = "images/image" + myImages1 + ".jpg";
     return myImages;
 }
-//Klikniêcia
+
+//KlikniÄ™cia
 var count = 0;
 
 //Pierwszy obrazek, losowanie
@@ -21,6 +22,7 @@ function clickHandler1() {
     }
     return count;
 }
+
 document.getElementById("jeden").addEventListener('click', clickHandler1);
 
 //Drugi obrazek, losowanie
@@ -35,6 +37,7 @@ function clickHandler2() {
     }
     return count;
 }
+
 document.getElementById("dwa").addEventListener('click', clickHandler2);
 
 //Trzeci obrazek, losowanie
@@ -49,4 +52,5 @@ function clickHandler3() {
     }
     return count;
 }
+
 document.getElementById("trzy").addEventListener('click', clickHandler3);
