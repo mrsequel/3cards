@@ -1,3 +1,6 @@
 # 3cards
 
-TODO: opisaæ projekt
+> :ledger: so lets begin
+
+Pierwsza gra obeznanie z podstawowymi zagadnieniami!
+3cards - choose me!
