@@ -1,4 +1,4 @@
-#jeden {
+#one {
     float: left;
     width: 240px;
     height: 360px;
@@ -7,18 +7,7 @@
     background-size: contain;
 }
 
-#dwa {
-    float: left;
-    margin-left: 20px;
-    width: 240px;
-    height: 360px;
-    background-image: url("../images/pokeball.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-
-}
-
-#trzy {
+#two {
     float: left;
     margin-left: 20px;
     width: 240px;
@@ -26,10 +15,21 @@
     background-image: url("../images/pokeball.jpg");
     background-repeat: no-repeat;
     background-size: contain;
+
+}
+
+#three {
+    float: left;
+    margin-left: 20px;
+    width: 240px;
+    height: 360px;
+    background-image: url("../images/pokeball.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 
-#zliczam {
+#counter {
     margin: 50px;
     background-color: #4CAF50;
     border: 1px solid green;
@@ -42,7 +42,7 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-#nowagra {
+#new-game {
     margin: 10px;
     background-color: #4CAF50;
     border: 1px solid green;

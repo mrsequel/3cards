@@ -21,11 +21,11 @@ function buildPokemonURL(number) {
 // Kliknięcia
 var count = 0;
 
-var $firstButton = document.getElementById("jeden");
-var $secondButton = document.getElementById("dwa");
-var $thirdButton = document.getElementById("trzy");
+var $firstButton = document.getElementById("one");
+var $secondButton = document.getElementById("two");
+var $thirdButton = document.getElementById("three");
 var $counter = document.getElementById("count");
-var winner = "images/pokemons/image1.jpg";
+var winner = 1;
 
 
 // Pierwszy obrazek, losowanie
@@ -36,7 +36,7 @@ function clickHandler1() {
 
     $firstButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (pokemonURL === winner) {
+    if (rand === winner) {
         count++;
         $counter.innerHTML = String(count);
     } else {
@@ -53,7 +53,7 @@ function clickHandler2() {
     console.log('2) pokemonURL', pokemonURL);
 
     $secondButton.style.backgroundImage = "url('" + pokemonURL + "')";
-    if (pokemonURL === winner) {
+    if (rand === winner) {
         count++;
         $counter.innerHTML = String(count);
     } else {
@@ -71,7 +71,7 @@ function clickHandler3() {
 
     $thirdButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (pokemonURL === winner) {
+    if (rand === winner) {
         count++;
         $counter.innerHTML = String(count);
     } else {
@@ -81,7 +81,8 @@ function clickHandler3() {
 
 $thirdButton.addEventListener('click', clickHandler3);
 
-
-function buttonReload() {
-    location.reload();
-}
+// Nowa gra
+var $restart = document.getElementById('new-game');
+$restart.addEventListener('click', function (){
+    location.reload()
+});
