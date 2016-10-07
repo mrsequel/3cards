@@ -1,6 +1,7 @@
 "use strict";
 
 var NUMBER_OF_POKEMONS_IN_GAME = 2;
+var WINNER_NUMBER = 1;
 
 // TODO(piecioshka): stworzyć $count                                                                - READY!
 // TODO(piecioshka): stworzyć zmienna, pod która będzie zwycięski pokemon (obecnie jest to 1)       - READY!
@@ -25,8 +26,7 @@ var $firstButton = document.getElementById("one");
 var $secondButton = document.getElementById("two");
 var $thirdButton = document.getElementById("three");
 var $counter = document.getElementById("count");
-var winner = 1;
-
+var $restart = document.getElementById('new-game');
 
 // Pierwszy obrazek, losowanie
 function clickHandler1() {
@@ -36,7 +36,7 @@ function clickHandler1() {
 
     $firstButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (rand === winner) {
+    if (rand === WINNER_NUMBER) {
         count++;
         $counter.innerHTML = String(count);
     } else {
@@ -53,7 +53,8 @@ function clickHandler2() {
     console.log('2) pokemonURL', pokemonURL);
 
     $secondButton.style.backgroundImage = "url('" + pokemonURL + "')";
-    if (rand === winner) {
+
+    if (rand === WINNER_NUMBER) {
         count++;
         $counter.innerHTML = String(count);
     } else {
@@ -71,7 +72,7 @@ function clickHandler3() {
 
     $thirdButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (rand === winner) {
+    if (rand === WINNER_NUMBER) {
         count++;
         $counter.innerHTML = String(count);
     } else {
@@ -82,7 +83,6 @@ function clickHandler3() {
 $thirdButton.addEventListener('click', clickHandler3);
 
 // Nowa gra
-var $restart = document.getElementById('new-game');
-$restart.addEventListener('click', function (){
+$restart.addEventListener('click', function () {
     location.reload()
 });

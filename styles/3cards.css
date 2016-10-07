@@ -1,56 +1,65 @@
-#one {
+.center-box {
+    margin: auto;
+}
+
+#game {
+    width: 740px;
+}
+
+#wrapper {
+    height: 240px;
+}
+
+.pokeball {
     float: left;
     width: 240px;
-    height: 360px;
-    background-image: url("../images/pokeball.jpg");
-    background-repeat: no-repeat;
+    height: 240px;
+    background: url("../images/pokeball.jpg") no-repeat;
     background-size: contain;
 }
 
 #two {
-    float: left;
-    margin-left: 20px;
-    width: 240px;
-    height: 360px;
-    background-image: url("../images/pokeball.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-
+    margin-left: 10px;
 }
 
 #three {
-    float: left;
-    margin-left: 20px;
-    width: 240px;
-    height: 360px;
-    background-image: url("../images/pokeball.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
+    margin-left: 10px;
 }
 
+#options {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 200px;
+}
 
 #counter {
-    margin: 50px;
-    background-color: #4CAF50;
-    border: 1px solid green;
-    color: white;
-    padding: 15px 32px;
-    display: inline-block;
+    width: 160px;
+    height: 55px;
+    line-height: 55px;
+    background: blue;
+    /*border: 1px solid darkblue;*/
+    border: none;
+    color: #fff;
+    font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
-    text-decoration: none;
     font-size: 16px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: inline-block;
+    margin: 0;
 }
 
 #new-game {
-    margin: 10px;
+    width: 160px;
+    height: 55px;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive, sans-serif;
     background-color: #4CAF50;
-    border: 1px solid green;
-    color: white;
-    padding: 15px 32px;
-    display: inline-block;
+    /*border: 1px solid green;*/
+    border: none;
     text-align: center;
-    text-decoration: none;
     font-size: 16px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: inline-block;
+    padding: 0;
 }
