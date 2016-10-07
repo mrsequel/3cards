@@ -1,9 +1,13 @@
 "use strict";
 
-var NUMBER_OF_POKEMONS_IN_GAME = 3;
+var NUMBER_OF_POKEMONS_IN_GAME = 2;
 
-// TODO(piecioshka): stworzyć $count
-// TODO(piecioshka): stworzyć zmienna, pod która bedzie zwycieski pokemon (obecnie jest to 1)
+// TODO(piecioshka): stworzyć $count                                                                - READY!
+// TODO(piecioshka): stworzyć zmienna, pod która będzie zwycięski pokemon (obecnie jest to 1)       - READY!
+// TODO(sequel): stworzyć wybór tylko jednej karty                                                  - ?
+// TODO(sequel): stworzyć przycisk "ponownego losowania" || "odświeżanie"                           - READY!
+// TODO(sequel): stworzyć wpisywanie loginu                                                         - ?
+// TODO(sequel): stworzyć bazę najlepszy wyników z wykorzystaniem loginów                           - ?
 
 function random(size) {
     return Math.floor((Math.random() * size) + 1)
@@ -20,6 +24,9 @@ var count = 0;
 var $firstButton = document.getElementById("jeden");
 var $secondButton = document.getElementById("dwa");
 var $thirdButton = document.getElementById("trzy");
+var $counter = document.getElementById("count");
+var winner = "images/pokemons/image1.jpg";
+
 
 // Pierwszy obrazek, losowanie
 function clickHandler1() {
@@ -29,9 +36,9 @@ function clickHandler1() {
 
     $firstButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (rand === 1) {
+    if (pokemonURL === winner) {
         count++;
-        document.getElementById("count").innerHTML = String(count);
+        $counter.innerHTML = String(count);
     } else {
         $firstButton.removeEventListener('click', clickHandler1);
     }
@@ -46,10 +53,9 @@ function clickHandler2() {
     console.log('2) pokemonURL', pokemonURL);
 
     $secondButton.style.backgroundImage = "url('" + pokemonURL + "')";
-
-    if (rand === 1) {
+    if (pokemonURL === winner) {
         count++;
-        document.getElementById("count").innerHTML = String(count);
+        $counter.innerHTML = String(count);
     } else {
         $secondButton.removeEventListener('click', clickHandler2);
     }
@@ -65,12 +71,17 @@ function clickHandler3() {
 
     $thirdButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (rand === 1) {
+    if (pokemonURL === winner) {
         count++;
-        document.getElementById("count").innerHTML = String(count);
+        $counter.innerHTML = String(count);
     } else {
         $thirdButton.removeEventListener('click', clickHandler3);
     }
 }
 
 $thirdButton.addEventListener('click', clickHandler3);
+
+
+function buttonReload() {
+    location.reload();
+}

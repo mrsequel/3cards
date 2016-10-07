@@ -1,6 +1,5 @@
 #jeden {
     float: left;
-    margin-left: 80px;
     width: 240px;
     height: 360px;
     background-image: url("../images/pokeball.jpg");
@@ -10,17 +9,18 @@
 
 #dwa {
     float: left;
-    margin-left: 30px;
+    margin-left: 20px;
     width: 240px;
     height: 360px;
     background-image: url("../images/pokeball.jpg");
     background-repeat: no-repeat;
     background-size: contain;
+
 }
 
 #trzy {
     float: left;
-    margin-left: 30px;
+    margin-left: 20px;
     width: 240px;
     height: 360px;
     background-image: url("../images/pokeball.jpg");
@@ -28,13 +28,29 @@
     background-size: contain;
 }
 
+
 #zliczam {
-    animation: blinker 1s linear infinite;
-    font-size: large;
-    color: blue;
+    margin: 50px;
+    background-color: #4CAF50;
+    border: 1px solid green;
+    color: white;
+    padding: 15px 32px;
+    display: inline-block;
     text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-@keyframes blinker {
-    50% { opacity: 0; }
+#nowagra {
+    margin: 10px;
+    background-color: #4CAF50;
+    border: 1px solid green;
+    color: white;
+    padding: 15px 32px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
