@@ -1,14 +1,16 @@
 "use strict";
 
-var NUMBER_OF_POKEMONS_IN_GAME = 2;
+var NUMBER_OF_POKEMONS_IN_GAME = 20;
 var WINNER_NUMBER = 1;
 
 // TODO(piecioshka): stworzyć $count                                                                - READY!
 // TODO(piecioshka): stworzyć zmienna, pod która będzie zwycięski pokemon (obecnie jest to 1)       - READY!
-// TODO(sequel): stworzyć wybór tylko jednej karty                                                  - ?
 // TODO(sequel): stworzyć przycisk "ponownego losowania" || "odświeżanie"                           - READY!
+// TODO(sequel): stworzyć wybór tylko jednej karty                                                  - ?
+// TODO(sequel): stworzyć większa częstotliwość wypadania zwycięskiego pokemona                     - ?
 // TODO(sequel): stworzyć wpisywanie loginu                                                         - ?
 // TODO(sequel): stworzyć bazę najlepszy wyników z wykorzystaniem loginów                           - ?
+
 
 function random(size) {
     return Math.floor((Math.random() * size) + 1)
@@ -16,7 +18,7 @@ function random(size) {
 
 // "Baza" obrazków
 function buildPokemonURL(number) {
-    return "images/pokemons/image" + number + ".jpg";
+    return "images/pokemons/pokemon" + number + ".jpg";
 }
 
 // Kliknięcia
