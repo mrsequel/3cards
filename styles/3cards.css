@@ -3,15 +3,16 @@
 }
 
 #play {
+    height: 30px;
     text-align: center;
     font-family: "Comic Sans MS", cursive, sans-serif;
     color: black;
 }
 
-#begin{
+#logo{
     margin: auto;
-    width: 740px;
-    height: 300px;
+    width: 150px;
+    height: 60px;
     background: url("../images/pokemonlogo.jpg") no-repeat;
     background-size: contain;
 }
