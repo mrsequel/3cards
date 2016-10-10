@@ -9,14 +9,6 @@
     color: black;
 }
 
-#logo{
-    margin: auto;
-    width: 150px;
-    height: 60px;
-    background: url("../images/pokemonlogo.jpg") no-repeat;
-    background-size: contain;
-}
-
 #game {
     width: 740px;
 }
@@ -62,6 +54,16 @@
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
     display: inline-block;
     margin: 0;
+}
+
+.button {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
 }
 
 #new-game {

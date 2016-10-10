@@ -1,31 +1,37 @@
 "use strict";
 
-var NUMBER_OF_POKEMONS_IN_GAME = 3;
-var WINNER_NUMBER = 1;
+var NUMBER_OF_POKEMONS_IN_GAME = [0, 1];
+var WINNER = "images/pokemons/pokemon.jpg";
 
 // 1. TODO(piecioshka): stworzyć $count                                                                - READY!
 // 2. TODO(piecioshka): stworzyć zmienna, pod która będzie zwycięski pokemon (obecnie jest to 1)       - READY!
 // 3. TODO(sequel): stworzyć przycisk "ponownego losowania" || "odświeżanie"                           - READY!
-// 4. TODO(sequel): stworzyć komunikaty w przypadku trafienia i pudła                                  - READY?
-// 5. TODO(sequel): stworzyć usuwanie liczby z tablicy po jej wylosowaniu w math.random                - READY?
-// 6. TODO(sequel): stworzyć wybór tylko jednej karty oraz odświeżenie po wyborze                      - ?
-// 7. TODO(sequel): stworzyć popup z wpisem loginu dla danego gracza                                   - ?
-// 8. TODO(sequel): stworzyć top 10 najlepszych wyników z loginami graczy                              - ?
-// 9. TODO(sequel): POPRAWKI!
+// 4. TODO(sequel): stworzyć komunikaty w przypadku trafienia i pudła                                  - READY!
+// 5. TODO(sequel): stworzyć usuwanie liczby z tablicy po jej wylosowaniu w math.random                - READY!
+// 6. TODO(sequel): stworzyć automatyczne odświeżanie(po 3s) DIVA po wyborze karty                     - ?
+// 7. TODO(sequel): stworzyć wybór tylko jednej karty                                                  - ?
+// 8. TODO(sequel): stworzyć popup z wpisem loginu dla danego gracza                                   - ?
+// 9. TODO(sequel): stworzyć top 10 najlepszych wyników z loginami graczy                              - ?
+// 10. TODO(sequel): POPRAWKI!                                                                         - ?
 
-/*// Nowy sposób losowania pokemonów - bez powtarzania wylosowanego
-var pokemons = ["pokemon1", "pokemon2", "pokemon3"];
-var list = pokemons.splice(Math.floor((Math.random()*pokemons.length), 1));
-console.log(list);
-*/
-
-function random(size) {
-    return Math.floor((Math.random() * size) + 1)
+// Losowania pokemonów - bez powtarzania wylosowanego
+function random() {
+    return NUMBER_OF_POKEMONS_IN_GAME.splice((Math.floor(Math.random() * NUMBER_OF_POKEMONS_IN_GAME.length)), 1);
 }
 
 // "Baza" obrazków
 function buildPokemonURL(number) {
     return "images/pokemons/pokemon" + number + ".jpg";
+}
+
+// Funkcja powiadomień trafionych
+function win() {
+    return alert("Punkt dla Ciebie!");
+}
+
+// Funkcja powiadomień nietrafionych
+function lose() {
+    return alert("Eh.. może następnym razem.");
 }
 
 // Kliknięcia
@@ -39,18 +45,18 @@ var $restart = document.getElementById("new-game");
 
 // Pierwszy obrazek, losowanie
 function clickHandler1() {
-    var rand = random(NUMBER_OF_POKEMONS_IN_GAME);
+    var rand = random();
     var pokemonURL = buildPokemonURL(rand);
     console.log('1) pokemonURL', pokemonURL);
 
     $firstButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (rand === WINNER_NUMBER) {
-        alert("Punkt dla Ciebie!");
+    if (pokemonURL === WINNER) {
+        win();
         count++;
         $counter.innerHTML = String(count);
     } else {
-        alert("Eh.. może następnym razem.");
+        lose();
         $firstButton.removeEventListener('click', clickHandler1);
     }
 }
@@ -65,12 +71,12 @@ function clickHandler2() {
 
     $secondButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (rand === WINNER_NUMBER) {
-        alert("Punkt dla Ciebie!");
+    if (pokemonURL === WINNER) {
+        win();
         count++;
         $counter.innerHTML = String(count);
     } else {
-        alert("Eh.. może następnym razem.");
+        lose();
         $secondButton.removeEventListener('click', clickHandler2);
     }
 }
@@ -85,12 +91,12 @@ function clickHandler3() {
 
     $thirdButton.style.backgroundImage = "url('" + pokemonURL + "')";
 
-    if (rand === WINNER_NUMBER) {
-        alert("Punkt dla Ciebie!");
+    if (pokemonURL === WINNER) {
+        win();
         count++;
         $counter.innerHTML = String(count);
     } else {
-        alert("Eh.. może następnym razem.");
+        lose();
         $thirdButton.removeEventListener('click', clickHandler3);
     }
 }
