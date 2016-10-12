@@ -10,3 +10,10 @@
 > Osoba zgadująca musi trafić wśród trzech dostępnych kart tę która jest zwycięska. 
 > W przyjętej koncepcji karty zostały zastąpione przez pokemony. Zwycięską kartą jest "Pikachu". 
 > Każde poprawne trafienie jest odnotowane jako punkt.
+
+Do zrobienia:
+* uporządkować kod - zrobić poprawki w obecnym 
+* stworzyć brak powtórzeń dla losowania pokemona
+* stworzyć funkcje przycisku "Następna kolejka"
+* stworzyć wybór tylko jednej karty przez gracza
+* stworzyć login dla gracza i tabelę najlepszych wyników (TOP 10)
