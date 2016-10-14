@@ -1,102 +1,61 @@
-"use strict";
+'use strict';
 
-var NUMBER_OF_POKEMONS_IN_GAME = 3;
-var WINNER = 0;
+// Pokeball
+var POKEBALL = 'images/pokeball.jpg';
 
-// Losowania pokemonów - bez powtarzania wylosowanego
-function random() {
-    return Math.round(Math.random() * NUMBER_OF_POKEMONS_IN_GAME);
-}
-
-// "Baza" obrazków
-function buildPokemonURL(number) {
-    return "images/pokemons/pokemon" + number + ".jpg";
-}
-
-/*
-// Funkcja powiadomień trafionych/nietrafionych
-function win() {
-    if (rand = 1) {
-    alert("Punkt dla Ciebie!");
-    } else {
-    alert("Eh.. może następnym razem.");
+// Zbudowanie tablicy obiektów
+var pokemons = [
+    {
+        url: 'images/pokemons/pokemon0.jpg'
+    },
+    {
+        url: 'images/pokemons/pokemon1.jpg'
+    },
+    {
+        url: 'images/pokemons/pokemon2.jpg'
     }
+];
+
+// Potasowanie listy
+function shuffle(list) {
+    var randomItemIndex = random(list.length);
+    var randomItem = list[randomItemIndex];
+    list.push(randomItem);
+    list.splice(randomItemIndex, 1);
 }
-*/
 
-// Kliknięcia
-var count = 0;
-var rand = random();
-var $firstButton = document.getElementById("one");
-var $secondButton = document.getElementById("two");
-var $thirdButton = document.getElementById("three");
-var $counter = document.getElementById("count");
-var $restart = document.getElementById("new-game");
-// var $next = document.getElementById("next-round");
+// Wylosowanie liczby od 0 do przekazanego numeru
+function random(number) {
+    return Math.round(Math.random() * (number - 1));
+}
 
-// Pierwszy obrazek, losowanie
-function clickHandler1() {
-    var pokemonURL = buildPokemonURL(rand);
-    console.log('1) pokemonURL', pokemonURL);
+function getRandomPokemon() {
+    var randomPokemonIndex = random(pokemons.length);
+    return pokemons[randomPokemonIndex];
+}
 
-    $firstButton.style.backgroundImage = "url('" + pokemonURL + "')";
-
-    if (rand === WINNER) {
-        win();
-        count++;
-        $counter.innerHTML = String(count);
-    } else {
-        win();
-        $firstButton.removeEventListener('click', clickHandler1);
+function render(pokemonList) {
+    var $cards = document.querySelector('#cards');
+    for (var i = 0; i < pokemonList.length; i++) {
+        var $pokemon = document.createElement('img');
+        $pokemon.classList.add('pokeball');
+        $pokemon.setAttribute('src', POKEBALL);
+        $pokemon.setAttribute('data-index', i);
+        var pokemon = pokemonList[i];
+        var pokemonUrl = pokemon.url;
+        $pokemon.setAttribute('data-src', pokemonUrl);
+        $cards.appendChild($pokemon);
     }
 }
 
-$firstButton.addEventListener('click', clickHandler1);
-
-// Drugi obrazek, losowanie
-function clickHandler2() {
-    var pokemonURL = buildPokemonURL(rand);
-    console.log('2) pokemonURL', pokemonURL);
-
-    $secondButton.style.backgroundImage = "url('" + pokemonURL + "')";
-
-    if (rand === WINNER) {
-        win();
-        count++;
-        $counter.innerHTML = String(count);
-    } else {
-        win();
-        $secondButton.removeEventListener('click', clickHandler2);
-    }
+function setupClicker() {
+    var $cards = document.querySelector('#cards');
+    $cards.addEventListener('click', function (event) {
+        var $pokemon = event.target;
+        $pokemon.src = $pokemon.getAttribute('data-src');
+    });
 }
 
-$secondButton.addEventListener('click', clickHandler2);
-
-// Trzeci obrazek, losowanie
-function clickHandler3() {
-    var pokemonURL = buildPokemonURL(rand);
-    console.log('3) pokemonURL', pokemonURL);
-
-    $thirdButton.style.backgroundImage = "url('" + pokemonURL + "')";
-
-    if (rand === WINNER) {
-        win();
-        count++;
-        $counter.innerHTML = String(count);
-    } else {
-        win();
-        $thirdButton.removeEventListener('click', clickHandler3);
-    }
-}
-
-$thirdButton.addEventListener('click', clickHandler3);
-
-/*
-// Następna kolejka
-$next.addEventListener('click', function(){});
-*/
-
-// Nowa gra
-$restart.addEventListener('click', function () {
-    location.reload();
-});
+shuffle(pokemons);
+render(pokemons);
+setupClicker();

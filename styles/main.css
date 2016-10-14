@@ -2,10 +2,11 @@
     margin: auto;
 }
 
-#play {
+#title {
+    font-size: 30px;
     height: 30px;
     text-align: center;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Lato", cursive, sans-serif;
     color: black;
 }
 
@@ -13,25 +14,17 @@
     width: 740px;
 }
 
-#wrapper {
+#cards {
     height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .pokeball {
-    float: left;
     width: 240px;
     height: 240px;
-    background: url("../images/pokeball.jpg") no-repeat;
-    background-size: contain;
     cursor: pointer;
-}
-
-#two {
-    margin-left: 10px;
-}
-
-#three {
-    margin-left: 10px;
 }
 
 #options {
