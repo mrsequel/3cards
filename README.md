@@ -15,7 +15,12 @@
 ## TODO
 
 1. [x] zbudowanie listy pokemonów (tablica obiektów)
-2. [x] potasowanie listy pokemonów - shuffle
-3. [ ] wyrenderowanie pokemonów - stworzyć funkcję render z listą pokemonów i te pokemony renderuje w pętli 
-4. [ ] stworzyć handlera i go przypisać - this 
-5. [ ] czekanie na klik usera
+2. [x] potasowanie listy pokemonów 
+3. [x] wyrenderowanie pokemonów 
+4. [x] stworzyć handlera i go przypisać  
+5. [x] czekanie na klik użytkownika
+6. [ ] wybór jednej z dostępnych kart
+7. [ ] zliczanie punktów użytkownika - stworzenie miejsca do wyświetlania wyniku trafionych oraz komunikatem w konsoli o trafieniu
+8. [ ] dodanie przycisków "Nowa gra" oraz "Następna kolejka"
+9. [ ] przeładowanie strony z usunięciem zawartości w localStorage - funkcja przycisku "Nowa gra"
+10. [ ] zapis a następnie odczyt po odświeżeniu pokemonów z wykorzystaniem localStorage - funkcja przycisku "Następna kolejka"
