@@ -1,5 +1,8 @@
 'use strict';
 
+// Liczba początkowa trafień
+var COUNT = 0;
+
 // Pokeball
 var POKEBALL = 'images/pokeball.jpg';
 
@@ -53,9 +56,34 @@ function setupClicker() {
     $cards.addEventListener('click', function (event) {
         var $pokemon = event.target;
         $pokemon.src = $pokemon.getAttribute('data-src');
+        // Zliczanie trafionego pokemona
+        if (($pokemon.src).includes("pokemon0")) {
+            COUNT++;
+            document.getElementById("count").innerHTML = COUNT;
+            console.log("Gratulacje Mistrzu! Trafiłeś!");
+        }
+    });
+}
+
+function newGame() {
+    var $new = document.getElementById('new-game');
+    $new.addEventListener('click', function () {
+        localStorage.clear();
+        location.reload();
+    });
+}
+
+function nextRound() {
+    var $round = document.getElementById('next-round');
+    $round.addEventListener('click', function () {
+        console.log('Następna runda! Wybierz pokeball!');
+        localStorage.setItem("wynik", COUNT);
+        localStorage.getItem("wynik");
     });
 }
 
 shuffle(pokemons);
 render(pokemons);
 setupClicker();
+newGame();
+nextRound();

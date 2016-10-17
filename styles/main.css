@@ -4,10 +4,11 @@
 
 #title {
     font-size: 30px;
-    height: 30px;
+    height: 50px;
     text-align: center;
     font-family: "Lato", cursive, sans-serif;
-    color: black;
+    text-transform: uppercase;
+    color: blue;
 }
 
 #game {
@@ -31,7 +32,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 200px;
+    height: 150px;
 }
 
 #counter {
