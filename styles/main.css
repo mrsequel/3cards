@@ -6,7 +6,7 @@
     font-size: 30px;
     height: 50px;
     text-align: center;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Calibri", cursive, sans-serif;
     text-transform: uppercase;
     color: blue;
 }
@@ -42,7 +42,7 @@
     background: blue;
     border: none;
     color: #fff;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Calibri", cursive, sans-serif;
     text-transform: uppercase;
     text-align: center;
     font-size: 16px;
@@ -65,7 +65,7 @@
     width: 160px;
     height: 55px;
     cursor: pointer;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Calibri", cursive, sans-serif;
     text-transform: uppercase;
     background-color: #4CAF50;
     border: none;
@@ -80,7 +80,7 @@
     width: 160px;
     height: 55px;
     cursor: pointer;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Calibri", cursive, sans-serif;
     text-transform: uppercase;
     background-color: #4CAF50;
     border: none;

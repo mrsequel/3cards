@@ -1,19 +1,10 @@
 'use strict';
 
+
 // Liczba początkowa trafień
 var score = 0;
 
-/*
-// Zliczanie trafionego pokemona
-function winner(){
-    if () {
-        score++;
-        document.getElementById("score").innerHTML = String(score);
-        console.log("Gratulacje Mistrzu! Trafiłeś!");
-    }
-}
-*/
-
+// Wyrenderowanie pokemona
 function render(pokemonList) {
     var $cards = document.querySelector('#cards');
     for (var i = 0; i < pokemonList.length; i++) {
@@ -24,7 +15,6 @@ function render(pokemonList) {
         var pokemon = pokemonList[i];
         var pokemonUrl = pokemon.url;
         $pokemon.setAttribute('data-src', pokemonUrl);
-        $pokemon.setAttribute('data-is-winner', pokemonUrl);
         $cards.appendChild($pokemon);
     }
 }
@@ -34,15 +24,26 @@ function setupClicker() {
     $cards.addEventListener('click', function (event) {
         var $pokemon = event.target;
         $pokemon.src = $pokemon.getAttribute('data-src');
+        var win = $pokemon.getAttribute('data-index');
+        // Zliczanie trafionego pokemona
+        if (win == 0) {
+            score++;
+            document.getElementById("score").innerHTML = String(score);
+            console.log("Gratulacje Mistrzu! Trafiłeś!");
+        }
     });
+}
 
+function nextRound() {
     var $round = document.querySelector('#next-round');
     $round.addEventListener('click', function () {
         console.log('Następna runda! Wybierz pokeball!');
         localStorage.setItem("result", score);
         localStorage.getItem("result");
     });
+}
 
+function restartGame() {
     var $new = document.querySelector('#restart-game');
     $new.addEventListener('click', function () {
         localStorage.clear();
@@ -50,5 +51,8 @@ function setupClicker() {
     });
 }
 
+shuffle(pokemons);
 render(pokemons);
 setupClicker();
+nextRound();
+restartGame();

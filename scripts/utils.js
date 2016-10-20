@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Potasowanie listy
 function shuffle(list) {
     var randomItemIndex = random(list.length);
@@ -12,5 +13,3 @@ function shuffle(list) {
 function random(number) {
     return Math.round(Math.random() * (number - 1));
 }
-
-shuffle(pokemons);
