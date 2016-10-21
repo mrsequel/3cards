@@ -1,6 +1,5 @@
 'use strict';
 
-
 // Liczba początkowa trafień
 var score = 0;
 
@@ -15,8 +14,26 @@ function render(pokemonList) {
         var pokemon = pokemonList[i];
         var pokemonUrl = pokemon.url;
         $pokemon.setAttribute('data-src', pokemonUrl);
+        var pokemonIsWinner = pokemon.isWinner;
+        $pokemon.setAttribute('data-is-winner', pokemonIsWinner);
         $cards.appendChild($pokemon);
     }
+}
+
+// Przycisk "Następna kolejka" - ponowne wyrenderowanie pokeball
+function sort(pokemonList) {
+    var $pokemon = document.getElementsByClassName('pokeball');
+    shuffle(pokemons);
+    for (var i = 0; i < pokemonList.length; i++) {
+        $pokemon[i].setAttribute('src', POKEBALL);
+        $pokemon[i].setAttribute('data-index', String(i));
+        var pokemon = pokemonList[i];
+        var pokemonUrl = pokemon.url;
+        $pokemon[i].setAttribute('data-src', pokemonUrl);
+        var pokemonIsWinner = pokemon.isWinner;
+        $pokemon[i].setAttribute('data-is-winner', pokemonIsWinner);
+    }
+    winner($pokemon);
 }
 
 function setupClicker() {
@@ -24,35 +41,40 @@ function setupClicker() {
     $cards.addEventListener('click', function (event) {
         var $pokemon = event.target;
         $pokemon.src = $pokemon.getAttribute('data-src');
-        var win = $pokemon.getAttribute('data-index');
-        // Zliczanie trafionego pokemona
-        if (win == 0) {
-            score++;
-            document.getElementById("score").innerHTML = String(score);
-            console.log("Gratulacje Mistrzu! Trafiłeś!");
-        }
+        winner($pokemon);
     });
-}
 
-function nextRound() {
     var $round = document.querySelector('#next-round');
     $round.addEventListener('click', function () {
         console.log('Następna runda! Wybierz pokeball!');
-        localStorage.setItem("result", score);
-        localStorage.getItem("result");
+        sort(pokemons);
     });
-}
 
-function restartGame() {
     var $new = document.querySelector('#restart-game');
     $new.addEventListener('click', function () {
-        localStorage.clear();
         location.reload();
     });
 }
 
-shuffle(pokemons);
+// Zliczanie trafionego pokemona
+function winner(something) {
+    var win = something.getAttribute('data-is-winner');
+    if (win == 1) {
+        score++;
+        document.getElementById("score").innerHTML = String(score);
+        console.log("Gratulacje Mistrzu! Trafiłeś!");
+    }
+}
+
+// Wybór jednej karty
+function chooseOne(something) {
+    var $cards = document.getElementsByClassName('#cards');
+    var choose = something.getAttribute('data-index');
+    if (choose != 0) {
+        $cards.removeEventListener('click', setupClicker);
+    }
+}
+
 render(pokemons);
 setupClicker();
-nextRound();
-restartGame();
+chooseOne(pokemons);

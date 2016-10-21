@@ -35,6 +35,16 @@
     height: 150px;
 }
 
+#description {
+    text-align: center;
+    font-family: "Calibri", cursive, sans-serif;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: blue;
+    border-width: 5px;
+    height: 135px;
+}
+
 #score-board {
     width: 160px;
     height: 55px;
