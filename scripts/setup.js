@@ -1,20 +1,15 @@
 'use strict';
 
-// Pokeball
-var POKEBALL = 'images/pokeball.jpg';
+function startGame() {
+    shuffle(POKEMONS);
+    render(POKEMONS);
+    setupClicker();
+}
 
-// Zbudowanie tablicy obiektów
-var pokemons = [
-    {
-        isWinner: 1,
-        url: 'images/pokemons/pokemon0.jpg'
-    },
-    {
-        isWinner: 0,
-        url: 'images/pokemons/pokemon1.jpg'
-    },
-    {
-        isWinner: 0,
-        url: 'images/pokemons/pokemon2.jpg'
-    }
-];
+startGame();
+
+function restartGame() {
+    shuffle(POKEMONS);
+    render(POKEMONS);
+    setupClicker();
+}

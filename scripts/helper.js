@@ -1,7 +1,7 @@
 'use strict';
 
-// "Zapasowa" funkcja
+// Zachowana, ale nieużywana
 function getRandomPokemon() {
-    var randomPokemonIndex = random(pokemons.length);
-    return pokemons[randomPokemonIndex];
+    var randomPokemonIndex = random(POKEMONS.length);
+    return POKEMONS[randomPokemonIndex];
 }
