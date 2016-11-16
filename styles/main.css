@@ -49,6 +49,7 @@
     width: 160px;
     height: 55px;
     line-height: 55px;
+    border-radius: 10px;
     background: blue;
     border: none;
     color: #fff;
@@ -64,6 +65,7 @@
 .button {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
+    border-radius: 10px;
 }
 
 .button:hover {

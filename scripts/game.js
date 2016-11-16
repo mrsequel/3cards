@@ -3,8 +3,14 @@
 // Liczba początkowa trafień
 var score = 0;
 
+// Czyszczenie przed wygenerowaniem pokemona
+function clearCards() {
+    document.querySelector('#cards').innerHTML = '';
+}
+
 // Wyrenderowanie pokemona
 function render(pokemonList) {
+    clearCards();
     var $cards = document.querySelector('#cards');
     for (var i = 0; i < pokemonList.length; i++) {
         var $pokemon = document.createElement('img');
@@ -31,10 +37,12 @@ function setupClicker() {
     var $round = document.querySelector('#next-round');
     $round.addEventListener('click', function () {
         console.log('Następna runda! Wybierz pokeball!');
+        startGame();
     });
 
     var $new = document.querySelector('#restart-game');
     $new.addEventListener('click', function () {
+        clearScore();
         restartGame();
     });
 }
@@ -42,7 +50,7 @@ function setupClicker() {
 // Wyświetlenie wyniku
 function displayScore() {
     document.getElementById("score").innerHTML = String(score);
-    console.log("Gratulacje Mistrzu! Trafiłeś!");
+    console.log("Gratulacje! Trafiłeś!");
 }
 
 // Sprawdzenie czy użytkownik trafił
@@ -54,4 +62,7 @@ function isHit(guess) {
     }
 }
 
-startGame();
+// Czyszczenie wyniku
+function clearScore() {
+    return document.getElementById("score").innerHTML = String('0');
+}
