@@ -2,13 +2,44 @@
     margin: auto;
 }
 
-#title {
-    font-size: 30px;
-    height: 50px;
+.title {
+    font-size: 25px;
     text-align: center;
     font-family: "Calibri", cursive, sans-serif;
     text-transform: uppercase;
-    color: blue;
+    -webkit-animation: color_change 1s infinite alternate;
+    -moz-animation: color_change 1s infinite alternate;
+    -ms-animation: color_change 1s infinite alternate;
+    -o-animation: color_change 1s infinite alternate;
+    animation: color_change 1s infinite alternate;
+}
+
+@-webkit-keyframes color_change {
+    from { color: blue; }
+    to { color: red; }
+}
+@-moz-keyframes color_change {
+    from { color: blue; }
+    to { color: red; }
+}
+@-ms-keyframes color_change {
+    from { color: blue; }
+    to { color: red; }
+}
+@-o-keyframes color_change {
+    from { color: blue; }
+    to { color: red; }
+}
+@keyframes color_change {
+    from { color: blue; }
+    to { color: red; }
+}
+
+#text {
+    font-size: 20px;
+    text-align: center;
+    font-family: "Calibri", cursive, sans-serif;
+    text-transform: uppercase;
 }
 
 #game {
@@ -38,11 +69,6 @@
 #description {
     text-align: center;
     font-family: "Calibri", cursive, sans-serif;
-    border-radius: 25px;
-    border-style: solid;
-    border-color: blue;
-    border-width: 5px;
-    height: 135px;
 }
 
 #score-board {
@@ -62,6 +88,7 @@
     margin: 0;
 }
 
+
 .button {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
@@ -69,7 +96,6 @@
 }
 
 .button:hover {
-    background-color: #4CAF50;
     color: white;
 }
 
@@ -79,7 +105,7 @@
     cursor: pointer;
     font-family: "Calibri", cursive, sans-serif;
     text-transform: uppercase;
-    background-color: #4CAF50;
+    background-color: red;
     border: none;
     text-align: center;
     font-size: 16px;
@@ -94,7 +120,7 @@
     cursor: pointer;
     font-family: "Calibri", cursive, sans-serif;
     text-transform: uppercase;
-    background-color: #4CAF50;
+    background-color: red;
     border: none;
     text-align: center;
     font-size: 16px;

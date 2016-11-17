@@ -8,6 +8,6 @@
 
 :ledger:
 > Pomysł na ćwiczenie oparty jest o grę w "Trzy Karty".
-> Osoba zgadująca musi trafić wśród trzech dostępnych kart tę która jest zwycięska. 
 > W przyjętej koncepcji karty zostały zastąpione przez pokemony. Zwycięską kartą jest "Pikachu". 
-> W przypadku trafienia zwycięskiego pokemona następuje odnotowanie punktu, a po kliknięciu "Następna kolejka" przejście do kolejnej próby. 
+> W przypadku trafienia zwycięskiego pokemona następuje odnotowanie punktu.
+> Przejście do kolejnego podejścia po trafieniu następuje po kliknięciu "Następna kolejka".

@@ -8,8 +8,7 @@ function startGame() {
 
 startGame();
 
-function restartGame() {
+function game(){
     shuffle(POKEMONS);
     render(POKEMONS);
-    setupClicker();
 }

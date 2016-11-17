@@ -26,31 +26,39 @@ function render(pokemonList) {
     }
 }
 
+// Wybór jednej karty
+var blocked = false;
+
 function setupClicker() {
     var $cards = document.querySelector('#cards');
     $cards.addEventListener('click', function (event) {
+        if (blocked){
+            return;
+        }
         var $pokemon = event.target;
         $pokemon.src = $pokemon.getAttribute('data-src');
         isHit($pokemon);
+        blocked = true;
     });
 
     var $round = document.querySelector('#next-round');
     $round.addEventListener('click', function () {
-        console.log('Następna runda! Wybierz pokeball!');
-        startGame();
+        game();
+        blocked = false;
     });
 
     var $new = document.querySelector('#restart-game');
     $new.addEventListener('click', function () {
-        clearScore();
-        restartGame();
+        score = 0;
+        displayScore();
+        game();
+        blocked = false;
     });
 }
 
 // Wyświetlenie wyniku
 function displayScore() {
     document.getElementById("score").innerHTML = String(score);
-    console.log("Gratulacje! Trafiłeś!");
 }
 
 // Sprawdzenie czy użytkownik trafił
@@ -59,10 +67,8 @@ function isHit(guess) {
     if (hit == 1) {
         score++;
         displayScore();
+        alert("Gratulacje, trafiłeś! Następna runda! Wybierz pokeball!");
+    } else {
+        alert('Pudło! Zaczynamy od początku!');
     }
-}
-
-// Czyszczenie wyniku
-function clearScore() {
-    return document.getElementById("score").innerHTML = String('0');
 }

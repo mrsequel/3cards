@@ -1,7 +1,7 @@
 'use strict';
 
 
-// Potasowanie
+// Tasowanie
 function shuffle(list) {
     var randomItemIndex = random(list.length);
     var randomItem = list[randomItemIndex];

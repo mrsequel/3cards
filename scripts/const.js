@@ -3,7 +3,7 @@
 // Pokeball
 var POKEBALL = 'images/pokeball.jpg';
 
-// Zbudowanie tablicy obiektów
+// Tablica obiektów
 var POKEMONS = [
     {
         isWinner: 1,
