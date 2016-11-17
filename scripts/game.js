@@ -3,6 +3,9 @@
 // Liczba początkowa trafień
 var score = 0;
 
+// Blokowanie przycisku "Następna kolejka" gdy nie trafimy odpowiedniego pokemona
+var isWinner = false;
+
 // Czyszczenie przed wygenerowaniem pokemona
 function clearCards() {
     document.querySelector('#cards').innerHTML = '';
@@ -36,13 +39,17 @@ function setupClicker() {
             return;
         }
         var $pokemon = event.target;
-        $pokemon.src = $pokemon.getAttribute('data-src');
         isHit($pokemon);
+        $pokemon.src = $pokemon.getAttribute('data-src');
         blocked = true;
     });
 
     var $round = document.querySelector('#next-round');
     $round.addEventListener('click', function () {
+        if (isWinner){
+            return;
+        }
+        isWinner = true;
         game();
         blocked = false;
     });
@@ -65,6 +72,7 @@ function displayScore() {
 function isHit(guess) {
     var hit = guess.getAttribute('data-is-winner');
     if (hit == 1) {
+        isWinner = false;
         score++;
         displayScore();
         alert("Gratulacje, trafiłeś! Następna runda! Wybierz pokeball!");
